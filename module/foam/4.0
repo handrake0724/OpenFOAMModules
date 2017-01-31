@@ -1,0 +1,144 @@
+#%Module########################################################################
+##
+## openfoam modulefile
+##
+proc ModulesHelp { } {
+   global version foamRoot
+
+   puts stderr "    This module defines environment variables, aliases and add PATH, LD_LIBRARY_PATH for OpenFOAM"
+   puts stderr "
+   Version $version
+   "
+}
+
+prereq   openmpi
+conflict OpenFOAM FOAM-extend
+
+module-whatis   "FOAM-extend 4.0"
+
+# for Tcl script use only
+
+set              version                              "4.0"
+set              foamRoot                             "$env(HOME)"
+
+setenv           WM_PROJECT                           "foam"
+setenv           WM_FORK                              "extend"
+setenv           WM_PROJECT_VERSION                   "$version"
+setenv           WM_PROJECT_INST_DIR                  "$foamRoot/$env(WM_PROJECT)"
+setenv           WM_PROJECT_DIR                       "$env(WM_PROJECT_INST_DIR)/$env(WM_PROJECT)-$env(WM_FORK)-$version"
+setenv           WM_PROJECT_USER_DIR                  "$env(WM_PROJECT_INST_DIR)/$env(USER)-$version"
+setenv           WM_THIRD_PARTY_DIR                   "$env(WM_PROJECT_DIR)/ThirdParty"
+setenv           WM_DIR                               "$env(WM_PROJECT_DIR)/wmake"
+
+setenv           WM_ARCH                              "linux64"
+setenv           WM_ARCH_OPTION                       "64"
+
+setenv           WM_COMPILER                          "$env(COMPILER_OF_TYPE)"
+setenv           WM_COMPILER_ARCH                     ""
+setenv           WM_COMPILER_LIB_ARCH                 "64"
+setenv           WM_COMPILE_OPTION                    "Opt"
+setenv           WM_PRECISION_OPTION                  "DP"
+setenv           WM_OSTYPE                            "POSIX"
+setenv           WM_OPTIONS                           "$env(WM_ARCH)$env(WM_COMPILER)$env(WM_PRECISION_OPTION)$env(WM_COMPILE_OPTION)"
+
+setenv           WM_CC                                "$env(CC)"
+setenv           WM_CXX                               "$env(CXX)"
+setenv           WM_CFLAGS                            "-m64 -fPIC"
+setenv           WM_CXXFLAGS                          "-m64 -fPIC"
+setenv           WM_LDFLAGS                           "-m64"
+setenv           WM_MPLIB                             "SYSTEMOPENMPI"
+
+# mpi is mpich
+#setenv          PINC                                  "[exec mpicc -show -cc= -nativelinking]"
+#setenv          PLIBS                                 "[exec mpicc -show -cc= | sed "s%$env(PINC)%%"]"
+
+# mpi is openmpi
+setenv           PINC                                 "[exec mpicc -showme:compile]"
+setenv           PLIBS                                "[exec mpicc -showme:link]"
+
+setenv           WM_LINK_LANGUAGE                     "c++"
+setenv           WM_NCOMPPROCS                        "[exec expr [exec nproc] / 2]"
+
+setenv           WM_THIRD_PARTY_USE_HWLOC_1101        "1"
+setenv           HWLOC_BIN_DIR                        "$env(WM_THIRD_PARTY_DIR)/packages/hwloc-1.10.1/platforms/env(WM_OPTIONS)/bin"
+setenv           HWLOC_DIR                            "$env(WM_THIRD_PARTY_DIR)/packages/hwloc-1.10.1/platforms/env(WM_OPTIONS)"
+
+setenv           WM_THIRD_PARTY_USE_LIBCCMIO_261      "1"
+setenv           LIBCCMIO_BIN_DIR                     "$env(WM_THIRD_PARTY_DIR)/packages/libccmio-2.6.1/platforms/env(WM_OPTIONS)/bin"
+setenv           LIBCCMIO_DIR                         "$env(WM_THIRD_PARTY_DIR)/packages/libccmio-2.6.1/platforms/env(WM_OPTIONS)"
+setenv           LIBCCMIO_INCLUDE_DIR                 "$env(WM_THIRD_PARTY_DIR)/packages/libccmio-2.6.1/platforms/env(WM_OPTIONS)/include"
+setenv           LIBCCMIO_LIB_DIR                     "$env(WM_THIRD_PARTY_DIR)/packages/libccmio-2.6.1/platforms/env(WM_OPTIONS)/lib"
+
+setenv           WM_THIRD_PARTY_USE_MESQUITE_212      "1"
+setenv           MESQUITE_BIN_DIR                     "$env(WM_THIRD_PARTY_DIR)/packages/mesquite-2.1.2/platforms/env(WM_OPTIONS)/bin"
+setenv           MESQUITE_DIR                         "$env(WM_THIRD_PARTY_DIR)/packages/mesquite-2.1.2/platforms/env(WM_OPTIONS)"
+setenv           MESQUITE_INCLUDE_DIR                 "$env(WM_THIRD_PARTY_DIR)/packages/mesquite-2.1.2/platforms/env(WM_OPTIONS)/include"
+setenv           MESQUITE_LIB_DIR                     "$env(WM_THIRD_PARTY_DIR)/packages/mesquite-2.1.2/platforms/env(WM_OPTIONS)/lib"
+
+setenv           WM_THIRD_PARTY_USE_METIS_510         "1"
+setenv           METIS_BIN_DIR                        "$env(WM_THIRD_PARTY_DIR)/packages/metis-5.1.0/platforms/env(WM_OPTIONS)/bin"
+setenv           METIS_DIR                            "$env(WM_THIRD_PARTY_DIR)/packages/metis-5.1.0/platforms/env(WM_OPTIONS)"
+setenv           METIS_INCLUDE_DIR                    "$env(WM_THIRD_PARTY_DIR)/packages/metis-5.1.0/platforms/env(WM_OPTIONS)/include"
+setenv           METIS_LIB_DIR                        "$env(WM_THIRD_PARTY_DIR)/packages/metis-5.1.0/platforms/env(WM_OPTIONS)/lib"
+
+setenv           WM_THIRD_PARTY_USE_PARMETIS_403      "1"
+setenv           PARMETIS_BIN_DIR                     "$env(WM_THIRD_PARTY_DIR)/packages/parmetis-4.0.3/platforms/env(WM_OPTIONS)/bin"
+setenv           PARMETIS_DIR                         "$env(WM_THIRD_PARTY_DIR)/packages/parmetis-4.0.3/platforms/env(WM_OPTIONS)"
+setenv           PARMETIS_INCLUDE_DIR                 "$env(WM_THIRD_PARTY_DIR)/packages/parmetis-4.0.3/platforms/env(WM_OPTIONS)/include"
+setenv           PARMETIS_LIB_DIR                     "$env(WM_THIRD_PARTY_DIR)/packages/parmetis-4.0.3/platforms/env(WM_OPTIONS)/lib"
+
+setenv           WM_THIRD_PARTY_USE_PARMGRIDGEN_10    "1"
+setenv           PARMGRIDGEN_BIN_DIR                  "$env(WM_THIRD_PARTY_DIR)/packages/ParMGridGen-1.0/platforms/env(WM_OPTIONS)/bin"
+setenv           PARMGRIDGEN_DIR                      "$env(WM_THIRD_PARTY_DIR)/packages/ParMGridGen-1.0/platforms/env(WM_OPTIONS)"
+setenv           PARMGRIDGEN_INCLUDE_DIR              "$env(WM_THIRD_PARTY_DIR)/packages/ParMGridGen-1.0/platforms/env(WM_OPTIONS)/include"
+setenv           PARMGRIDGEN_LIB_DIR                  "$env(WM_THIRD_PARTY_DIR)/packages/ParMGridGen-1.0/platforms/env(WM_OPTIONS)/lib"
+
+setenv           WM_THIRD_PARTY_USE_SCOTCH_604        "1"
+setenv           SCOTCH_BIN_DIR                       "$env(WM_THIRD_PARTY_DIR)/packages/scotch-6.0.4/platforms/env(WM_OPTIONS)/bin"
+setenv           SCOTCH_DIR                           "$env(WM_THIRD_PARTY_DIR)/packages/scotch-6.0.4/platforms/env(WM_OPTIONS)"
+setenv           SCOTCH_INCLUDE_DIR                   "$env(WM_THIRD_PARTY_DIR)/packages/scotch-6.0.4/platforms/env(WM_OPTIONS)/include"
+setenv           SCOTCH_LIB_DIR                       "$env(WM_THIRD_PARTY_DIR)/packages/scotch-6.0.4/platforms/env(WM_OPTIONS)/lib"
+
+setenv           PYFOAM_SITE_DIR                      "$env(WM_THIRD_PARTY_DIR)/PyFoamSiteScripts"
+
+setenv           FOAM_INST_DIR                        "$env(WM_PROJECT_INST_DIR)"
+setenv           FOAM_APP                             "$env(WM_PROJECT_DIR)/applications"
+setenv           FOAM_APPBIN                          "$env(FOAM_APP)/bin/env(WM_OPTIONS)"
+setenv           FOAM_USER_APPBIN                     "$env(WM_PROJECT_USER_DIR)/applications/bin/env(WM_OPTIONS)"
+setenv           FOAM_SOLVERS                         "$env(FOAM_APP)/solvers"
+setenv           FOAM_UTILITIES                       "$env(FOAM_APP)/utilities"
+
+setenv           FOAM_DEV                             "1"
+
+setenv           FOAM_RUN                             "$env(WM_PROJECT_USER_DIR)/run"
+setenv           FOAM_SIGFPE                          ""
+setenv           FOAM_JOB_DIR                         "$env(WM_PROJECT_INST_DIR)/jobControl"
+
+setenv           FOAM_SITE_DIR                        "$env(WM_PROJECT_INST_DIR)/site/$version"
+setenv           FOAM_SITE_APPBIN                     "$env(FOAM_SITE_DIR)/bin/env(WM_OPTIONS)"
+setenv           FOAM_SITE_LIBBIN                     "$env(FOAM_SITE_DIR)/lib/env(WM_OPTIONS)"
+
+setenv           FOAM_SRC                             "$env(WM_PROJECT_DIR)/src"
+setenv           FOAM_LIB                             "$env(WM_PROJECT_DIR)/lib"
+
+setenv           FOAM_LIBBIN                          "$env(WM_PROJECT_DIR)/lib/env(WM_OPTIONS)"
+setenv           FOAM_USER_LIBBIN                     "$env(WM_PROJECT_USER_DIR)/lib/env(WM_OPTIONS)"
+
+setenv           FOAM_TEST_HARNESS_DIR                "$env(WM_PROJECT_DIR)/testHarness/$env(WM_PROJECT)-$env(WM_FORK)/$version"
+setenv           FOAM_TUTORIALS                       "$env(WM_PROJECT_DIR)/tutorials"
+
+prepend-path     LD_LIBRARY_PATH                      "$env(WM_THIRD_PARTY_DIR)/packages/scotch-6.0.4/platforms/env(WM_OPTIONS)/lib"
+prepend-path     LD_LIBRARY_PATH                      "$env(WM_THIRD_PARTY_DIR)/packages/parmetis-4.0.3/platforms/env(WM_OPTIONS)/lib"
+prepend-path     LD_LIBRARY_PATH                      "$env(WM_THIRD_PARTY_DIR)/packages/mesquite-2.1.2/platforms/env(WM_OPTIONS)/lib"
+prepend-path     LD_LIBRARY_PATH                      "$env(WM_THIRD_PARTY_DIR)/packages/libccmio-2.6.1/platforms/env(WM_OPTIONS)/lib"
+prepend-path     LD_LIBRARY_PATH                      "$env(WM_THIRD_PARTY_DIR)/packages/metis-5.1.0/platforms/env(WM_OPTIONS)/lib"
+prepend-path     LD_LIBRARY_PATH                      "$env(WM_THIRD_PARTY_DIR)/packages/ParMGridGen-1.0/platforms/env(WM_OPTIONS)/lib"
+
+prepend-path     PATH                                 "$env(WM_PROJECT_DIR)/bin"
+prepend-path     PATH                                 "$env(WM_DIR)"
+prepend-path     PATH                                 "$env(FOAM_APPBIN)"
+prepend-path     PATH                                 "$env(FOAM_SITE_APPBIN)"
+prepend-path     PATH                                 "$env(FOAM_APPBIN)"
+prepend-path     PATH                                 "$env(WM_THIRD_PARTY_DIR)/PyFoamSiteScripts/bin"
+
+
