@@ -29,6 +29,8 @@ setenv           WM_PROJECT_DIR                       "$env(WM_PROJECT_INST_DIR)
 setenv           WM_PROJECT_USER_DIR                  "$env(WM_PROJECT_INST_DIR)/$env(USER)-$version"
 setenv           WM_THIRD_PARTY_DIR                   "$env(WM_PROJECT_DIR)/ThirdParty"
 setenv           WM_DIR                               "$env(WM_PROJECT_DIR)/wmake"
+# Naval Hydro Pack specific
+setenv           NHP_LIB_SRC                          "$env(WM_PROJECT_INST_DIR)/NavalHydro/src"
 
 setenv           WM_ARCH                              "linux64"
 setenv           WM_ARCH_OPTION                       "64"
