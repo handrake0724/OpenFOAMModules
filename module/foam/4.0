@@ -30,7 +30,7 @@ setenv           WM_PROJECT_USER_DIR                  "$env(WM_PROJECT_INST_DIR)
 setenv           WM_THIRD_PARTY_DIR                   "$env(WM_PROJECT_DIR)/ThirdParty"
 setenv           WM_DIR                               "$env(WM_PROJECT_DIR)/wmake"
 # Naval Hydro Pack specific
-setenv           NHP_LIB_SRC                          "$env(WM_PROJECT_INST_DIR)/NavalHydro/src"
+setenv 	         NHP_LIB_SRC                          "$env(WM_PROJECT_INST_DIR)/NavalHydro/src"
 
 setenv           WM_ARCH                              "linux64"
 setenv           WM_ARCH_OPTION                       "64"
@@ -141,7 +141,7 @@ prepend-path     PATH                                 "$env(WM_PROJECT_DIR)/bin"
 prepend-path     PATH                                 "$env(WM_DIR)"
 prepend-path     PATH                                 "$env(FOAM_APPBIN)"
 prepend-path     PATH                                 "$env(FOAM_SITE_APPBIN)"
-prepend-path     PATH                                 "$env(FOAM_APPBIN)"
+prepend-path     PATH                                 "$env(FOAM_USER_APPBIN)"
 prepend-path     PATH                                 "$env(WM_THIRD_PARTY_DIR)/PyFoamSiteScripts/bin"
 
 
