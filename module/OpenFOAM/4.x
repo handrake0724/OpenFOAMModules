@@ -51,7 +51,7 @@ setenv           WM_OSTYPE                 "POSIX"
 setenv           WM_OPTIONS                "$env(WM_ARCH)$env(WM_COMPILER)$env(WM_PRECISION_OPTION)$env(WM_LABEL_OPTION)$env(WM_COMPILE_OPTION)"
 
 setenv           WM_LINK_LANGUAGE          "c++"
-setenv           WM_NCOMPPROCS                       "[exec expr [exec nproc] / 2]"
+setenv           WM_NCOMPPROCS             "[exec expr [exec nproc] / 2]"
 
 setenv           boost_version             "1_63_0"
 setenv           BOOST_ARCH_PATH           "$env(WM_THIRD_PARTY_DIR)/platforms/$env(WM_ARCH)$env(WM_COMPILER)/boost_$env(boost_version)"
