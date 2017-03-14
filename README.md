@@ -10,7 +10,7 @@ Environment Module is based on the latest Tcl version instead of out-dated C ver
 * install environment module
 
 `
-  ./configure --prefix=/usr/share/Modules/1.775 --modulefiledir=/usr/share/Modules/modulefiles
+  ./configure --prefix=/usr/share/Modules/1.775 --modulefilesdir=/usr/share/Modules/modulefiles
   make install
 `
 
