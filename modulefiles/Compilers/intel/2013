@@ -1,0 +1,104 @@
+#%Module1.0###################################################################
+##
+
+proc ModulesHelp { } {
+    puts stderr "\tThis module is for use of Intel Compiler 2013."
+    puts stderr "\tIt needs module(s):"
+    puts stderr "\t                  None"
+    puts stderr "\tUse example:"
+    puts stderr "\t        \$ module load intel/2013"
+}
+
+conflict intel gcc
+
+module-whatis "Name: Intel 64 Compiler XE"
+module-whatis "Version: 16.0.7"
+module-whatis "Description: Intel compiler can be used as an alternative to GNU's compiler"
+
+# Tcl script use only
+set             version              2013
+set             xeversion            2013.1.40.463413
+set             intel_prefix         /opt/intel
+set             intelxe_prefix       $intel_prefix/$version
+set             icc_prefix           $intelxe_prefix/composer_xe_2013_sp1.3.174
+
+if {![file exists $icc_prefix]} {
+    puts stderr "\t[module-info name] Load Error: $icc_prefix does not exist"
+    break
+    exit 1
+}
+
+setenv          COMPILER_PREFIX      $intel_prefix
+setenv          COMPILER             intel
+setenv          COMPILER_TYPE        intel
+setenv          COMPILER_VERSION     $version
+setenv          FORTRAN_TYPE         ifort
+setenv          CC                   icc
+setenv          CXX                  icpc
+setenv          FC                   ifort
+
+setenv          COMPILER_OF_TYPE     Icc
+
+setenv          DAALROOT             $icc_prefix/daal
+setenv          IPPROOT              $icc_prefix/ipp
+setenv          MKLROOT              $icc_prefix/mkl
+setenv          TBBROOT              $icc_prefix/tbb
+setenv          MPM_LAUNCHER         $intelxe_prefix/debugger_2013/mpm/mic/bin/start_mpm.sh
+#setenv          F77                 ifort
+#setenv          F90                 ifort
+
+prepend-path    PATH                 $intelxe_prefix/debugger_2013/gdb/intel64_mic/bin
+prepend-path    PATH                 $icc_prefix/bin/intel64
+
+prepend-path    CLASSPATH            $env(DAALROOT)/lib/daal.jar
+
+prepend-path    LD_LIBRARY_PATH      $icc_prefix/compiler/lib/intel64
+prepend-path    LD_LIBRARY_PATH      $icc_prefix/compiler/lib/intel64_lin
+prepend-path    LD_LIBRARY_PATH      $env(IPPROOT)/lib/intel64
+prepend-path    LD_LIBRARY_PATH      $icc_prefix/compiler/lib/intel64
+prepend-path    LD_LIBRARY_PATH      $env(MKLROOT)/lib/intel64
+prepend-path    LD_LIBRARY_PATH      $env(TBBROOT)/lib/intel64/gcc4.4
+prepend-path    LD_LIBRARY_PATH      $intelxe_prefix/debugger_2013/libipt/intel64/lib
+prepend-path    LD_LIBRARY_PATH      $env(DAALROOT)/lib/intel64_lin
+prepend-path    LD_LIBRARY_PATH      $env(DAALROOT)/../tbb/lib/intel64_lin/gcc4.4
+prepend-path    LD_LIBRARY_PATH      $env(DAALROOT)/../compiler/lib/intel64_lin
+
+prepend-path    LIBRARY_PATH         $env(IPPROOT)/lib/intel64
+prepend-path    LIBRARY_PATH         $icc_prefix/compiler/lib/intel64
+prepend-path    LIBRARY_PATH         $env(MKLROOT)/lib/intel64
+prepend-path    LIBRARY_PATH         $env(TBBROOT)/lib/intel64/gcc4.4
+prepend-path    LIBRARY_PATH         $env(DAALROOT)/lib/intel64_lin
+prepend-path    LIBRARY_PATH         $env(DAALROOT)/../tbb/lib/intel64_lin/gcc4.4
+prepend-path    LIBRARY_PATH         $env(DAALROOT)/../compiler/lib/intel64_lin
+
+prepend-path    NLSPATH              $icc_prefix/compiler/lib/intel64/locale/%l_%t/%N
+prepend-path    NLSPATH              $env(MKLROOT)/lib/intel64/locale/%l_%t/%N
+prepend-path    NLSPATH              $icc_prefix/debugger_2013/gdb/intel64_mic/share/locale/%l_%t/%N
+prepend-path    NLSPATH              $icc_prefix/debugger_2013/gdb/intel64/share/locale/%l_%t/%N
+
+prepend-path    CPATH                $env(IPPROOT)/ipp/include
+prepend-path    CPATH                $env(MKLROOT)/include
+prepend-path    CPATH                $env(TBBROOT)/tbb/include
+prepend-path    CPATH                $env(DAALROOT)/daal/include
+
+prepend-path    MIC_LD_LIBRARY_PATH  $icc_prefix/compiler/lib/mic
+prepend-path    MIC_LD_LIBRARY_PATH  $env(IPPROOT)/lib/mic
+prepend-path    MIC_LD_LIBRARY_PATH  $icc_prefix//compiler/lib/mic
+prepend-path    MIC_LD_LIBRARY_PATH  $env(MKLROOT)/lib/mic
+prepend-path    MIC_LD_LIBRARY_PATH  $env(TBBROOT)/lib/mic
+
+prepend-path    MIC_LIBRARY_PATH     $icc_prefix/compiler/lib/mic
+prepend-path    MIC_LIBRARY_PATH     $env(TBBROOT)/lib/mic
+
+prepend-path    FPATH                $env(MKLROOT)/include
+prepend-path    GDB_CROSS            $intelxe_prefix/debugger_2013/gdb/intel64_mic/bin/gdb-mic
+prepend-path    GDBSERVER_MIC        $intelxe_prefix/debugger_2013/gdb/targets/mic/bin/gdbserver
+prepend-path    INFOPATH             $intelxe_prefix/documentation_2013/en/debugger/gdb-ia/info
+prepend-path    INFOPATH             $intelxe_prefix/documentation_2013/en/debugger/gdb-mic/info
+prepend-path    INFOPATH             $intelxe_prefix/documentation_2013/en/debugger/gdb-igfx/info
+prepend-path    INTEL_PYTHONHOME     $intelxe_prefix/debugger_2013/python/intel64
+prepend-path    INTEL_LICENSE_FILE   $intelxe_prefix/licenses
+
+prepend-path    MANPATH              $intelxe_prefix/documentation_2013/en/debugger/gdb-ia/man/
+prepend-path    MANPATH              $intelxe_prefix/documentation_2013/en/debugger/gdb-mic/man/
+prepend-path    MANPATH              $intelxe_prefix/documentation_2013/en/debugger/gdb-igfx/man/

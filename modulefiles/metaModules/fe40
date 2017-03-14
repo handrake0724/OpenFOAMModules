@@ -1,0 +1,6 @@
+#%Module########################################################################
+##
+## openfoam modulefile
+##
+
+module load gcc openmpi Foam-extend/4.0

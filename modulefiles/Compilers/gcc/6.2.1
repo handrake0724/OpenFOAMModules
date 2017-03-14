@@ -1,0 +1,41 @@
+#%Module1.0###################################################################
+##
+
+proc ModulesHelp { } {
+    puts stderr "\tThis module is for use of Intel Compiler 2016."
+    puts stderr "\tIt needs module(s):"
+    puts stderr "\t                  None"
+    puts stderr "\tUse example:"
+    puts stderr "\t        \$ module load intel/2016"
+}
+
+conflict intel gcc
+
+module-whatis "Name: Intel 64 Compiler XE"
+module-whatis "Version: 16.0.7"
+module-whatis "Description: Intel compiler can be used as an alternative to GNU's compiler"
+
+# Tcl script use only
+set             major                6
+set             minor                2
+set             patch                1
+set             version              $major.$minor.$patch
+set             gnu_prefix           /usr
+set             gcc_prefix           /usr
+
+
+setenv          COMPILER_PREFIX      $gcc_prefix
+setenv          COMPILER             gnu
+setenv          COMPILER_TYPE        gcc
+setenv          COMPILER_VERSION     $version
+setenv          FORTRAN_TYPE         gfortran
+setenv          CC                   gcc
+setenv          CXX                  g++
+setenv          FC                   gfortran
+
+setenv          COMPILER_OF_TYPE     Gcc
+
+prepend-path    PATH                 $gcc_prefix/bin
+#prepend-path    LD_LIBRARY_PATH      $gcc_prefix/lib/gcc/x86_64-pc-linux-gnu/$version
+#prepend-path    LD_LIBRARY_PATH      $gcc_prefix/lib
+#prepend-path    LD_LIBRARY_PATH      $gcc_prefix/lib64

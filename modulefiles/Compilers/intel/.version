@@ -1,0 +1,6 @@
+#%Module1.0##########################################################
+##
+## version file for openmpi
+##
+set ModulesVersion "2016"
+

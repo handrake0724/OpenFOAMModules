@@ -1,0 +1,6 @@
+#%Module########################################################################
+##
+## openfoam modulefile
+##
+
+module load gcc openmpi OpenFOAM/4.x
