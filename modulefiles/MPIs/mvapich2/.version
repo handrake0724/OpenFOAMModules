@@ -1,0 +1,5 @@
+#%Module1.0##########################################################
+##
+## version file for mvapich2
+##
+set ModulesVersion "2.2"
