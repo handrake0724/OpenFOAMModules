@@ -28,4 +28,6 @@ Environment Module is based on the latest Tcl version instead of out-dated C ver
 
 * just call metaModules such as of4x, of4xdbg, etc.
 
+### setups for OpenFOAM-2.x and OpenFOAM-[34].x are different
+
 ### Enjoy
