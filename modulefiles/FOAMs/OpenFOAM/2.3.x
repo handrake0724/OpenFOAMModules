@@ -11,7 +11,7 @@ proc ModulesHelp { } {
    "
 }
 
-prereq   mvapich2
+prereq   openmpi
 conflict OpenFOAM FOAM-extend
 
 module-whatis "OpenFOAM 2.3.x"
