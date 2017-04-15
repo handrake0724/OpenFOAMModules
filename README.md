@@ -11,6 +11,8 @@ Environment Module is based on the latest Tcl version instead of out-dated C ver
 
 `
 ./configure --prefix=/usr/share/Modules/1.775 --modulefilesdir=/usr/share/Modules/modulefiles
+`
+`
 make install
 `
 
@@ -34,12 +36,18 @@ Lmod is an implementation in Lua of Environment Module.
 install lua and lua-posix and lua-filesystems with luarocks
 `
 luarocks install luaposix
+`
+`
 luarocks install luafilesystems
 `
 
 `
 git clone https://github.com/TACC/Lmod.git
+`
+`
 cd Lmod
+`
+`
 ./configure --prefix=/usr/share --with-tcl=no
 `
 
