@@ -22,20 +22,30 @@ setenv("NHP_LIB_SRC", pathJoin(os.getenv("WM_PROJECT_INST_DIR"), "NavalHydro/src
 setenv("WM_ARCH", "linux64")
 setenv("WM_ARCH_OPTION", "64")
 
-setenv("WM_COMPILER", pathJoin(os.getenv("COMPILER_OF_TYPE")))
-setenv("WM_COMPILER_ARCH", "")
-setenv("WM_COMPILER_LIB_ARCH", "64")
-setenv("WM_COMPILE_OPTION", "Opt")
-setenv("WM_PRECISION_OPTION", "DP")
-setenv("WM_OSTYPE", "POSIX")
-setenv("WM_OPTIONS", pathJoin(os.getenv("WM_ARCH")..os.getenv("WM_COMPILER")..os.getenv("WM_PRECISION_OPTION")..os.getenv("WM_COMPILE_OPTION")))
-
 setenv("WM_CC", os.getenv("CC"))
 setenv("WM_CXX", os.getenv("CXX"))
 setenv("WM_CFLAGS", "-m64 -fPIC")
 setenv("WM_CXXFLAGS", "-m64 -fPIC")
 setenv("WM_LDFLAGS", "-m64")
+
+if (os.getenv("WM_CC") == "gcc") then
+  setenv("WM_COMPILER", "Gcc")
+elseif (os.getenv("WM_CC") == "icc") then
+  setenv("WM_COMPILER", "Icc")
+elseif (os.getenv("WM_CC") == "clang") then
+  setenv("WM_COMPILER", "Clang")
+end
+setenv("WM_COMPILER_ARCH", "")
+setenv("WM_COMPILER_LIB_ARCH", "64")
+setenv("WM_COMPILE_OPTION", "Opt")
+
+setenv("WM_PRECISION_OPTION", "DP")
 setenv("WM_MPLIB", "SYSTEMOPENMPI")
+setenv("WM_OSTYPE", "POSIX")
+setenv("WM_OPTIONS", pathJoin(os.getenv("WM_ARCH")..os.getenv("WM_COMPILER")..os.getenv("WM_PRECISION_OPTION")..os.getenv("WM_COMPILE_OPTION")))
+
+setenv("WM_LINK_LANGUAGE", "c++")
+setenv("WM_NCOMPPROCS", capture("expr `nproc` / 2"))
 
 if (isloaded("openmpi")) then
 local PINC=capture("mpicc -showme:compile")
@@ -49,8 +59,6 @@ setenv("PINC", PINC)
 setenv("PLIBS", PLIBS)
 end
 
-setenv("WM_LINK_LANGUAGE", "c++")
-setenv("WM_NCOMPPROCS", capture("expr `nproc` / 2"))
 
 setenv("WM_THIRD_PARTY_USE_HWLOC_1101", "1")
 setenv("HWLOC_BIN_DIR", pathJoin(os.getenv("WM_THIRD_PARTY_DIR"), "packages/hwloc-1.10.1/platforms", os.getenv("WM_OPTIONS"), "bin"))

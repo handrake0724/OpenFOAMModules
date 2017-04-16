@@ -23,8 +23,6 @@ setenv("CC", "clang")
 setenv("CXX", "clang++")
 setenv("FC", "gfortran")
 
-setenv("COMPILER_OF_TYPE", "Clang")
-
 prepend_path("PATH", pathJoin(clang_prefix, "bin"))
 -- prepend_path("LD_LIBRARY_PATH", pathJoin(clang_prefix, "lib/gcc/x86_64-pc-linux-gnu", $version))
 -- prepend_path("LD_LIBRARY_PATH", pathJoin(clang_prefix, "lib"))

@@ -21,7 +21,6 @@ setenv("FORTRAN_TYPE", "gfortran")
 setenv("CC", "gcc")
 setenv("CXX", "g++")
 setenv("FC", "gfortran")
-setenv("COMPILER_OF_TYPE",  "Gcc")
 
 prepend_path("PATH", pathJoin(gcc_prefix,"/bin"))
 -- prepend_path("LD_LIBRARY_PATH", pathJoin(gcc_prefix, "lib/gcc/x86_64-pc-linux-gnu", version))

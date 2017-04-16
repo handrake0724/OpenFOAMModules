@@ -21,8 +21,6 @@ setenv("CC", "icc")
 setenv("CXX", "icpc")
 setenv("FC", "ifort")
 
-setenv("COMPILER_OF_TYPE", "Icc")
-
 setenv("DAALROOT", pathJoin(icc_prefix, "daal"))
 setenv("IPPROOT", pathJoin(icc_prefix, "ipp"))
 setenv("MKLROOT", pathJoin(icc_prefix, "mkl"))
