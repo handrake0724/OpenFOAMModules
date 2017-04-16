@@ -40,7 +40,21 @@ luarocks install luafilesystems
 ```
 git clone https://github.com/TACC/Lmod.git
 cd Lmod
-./configure --prefix=/usr/share --with-tcl=no
+./configure --prefix=/usr/share/Modules
+```
+
+## Setup
+### general setup
+
+```
+cd /etc/profile.d
+ln -sf /usr/share/Modules/lmod/lmod/init/profile module.sh
+```
+### for Arch linux
+
+In addition to the above general setup, the following setup is needed for Gnome Desktop Environment (maybe in KDE also)
+```
+echo '[ -r /etc/profile.d/modules.sh ] && . /etc/profile.d/modules.sh' >> /etc/bash.bashrc
 ```
 
 ## How to use
