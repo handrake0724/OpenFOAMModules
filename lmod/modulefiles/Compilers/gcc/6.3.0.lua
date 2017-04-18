@@ -4,10 +4,10 @@ conflict("intel", "gcc")
 
 local major=6
 local minor=3
-local patch=1
+local patch=0
 local version=major.."."..minor.."."..patch
-local gnu_prefix="/usr"
-local gcc_prefix="/usr"
+local gnu_prefix=pathJoin("/opt/HPC/Compilers/gcc", version)
+local gcc_prefix=pathJoin("/opt/HPC/Compilers/gcc", version)
 
 whatis("Name: gcc")
 whatis("Version: "..version)
@@ -22,7 +22,7 @@ pushenv("CC", "gcc")
 pushenv("CXX", "g++")
 pushenv("FC", "gfortran")
 
-prepend_path("PATH", pathJoin(gcc_prefix,"/bin"))
--- prepend_path("LD_LIBRARY_PATH", pathJoin(gcc_prefix, "lib/gcc/x86_64-pc-linux-gnu", version))
--- prepend_path("LD_LIBRARY_PATH", pathJoin(gcc_prefix, "lib"))
--- prepend_path("LD_LIBRARY_PATH", pathJoin(gcc_prefix, "lib64"))
+prepend_path("PATH", pathJoin(gcc_prefix,"bin"))
+prepend_path("LD_LIBRARY_PATH", pathJoin(gcc_prefix, "lib/gcc/x86_64-pc-linux-gnu", version))
+prepend_path("LD_LIBRARY_PATH", pathJoin(gcc_prefix, "lib"))
+prepend_path("LD_LIBRARY_PATH", pathJoin(gcc_prefix, "lib64"))
