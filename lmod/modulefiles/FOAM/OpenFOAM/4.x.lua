@@ -11,7 +11,7 @@ local foamRoot=os.getenv("HOME")
 
 local wm_project="OpenFOAM"
 local wm_project_version=version
-local wm_project_inst_dir=pathJoin(foamRoot, project)
+local wm_project_inst_dir=pathJoin(foamRoot, wm_project)
 local wm_project_dir=pathJoin(wm_project_inst_dir, wm_project.."-"..version)
 local wm_third_party_dir=pathJoin(wm_project_inst_dir, "ThirdParty-"..version)
 local wm_project_user_dir=pathJoin(os.getenv("HOME"), wm_project, os.getenv("USER").."-"..version)
