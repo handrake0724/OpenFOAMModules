@@ -16,11 +16,11 @@ module-whatis "Version: 16.0.7"
 module-whatis "Description: Intel compiler can be used as an alternative to GNU's compiler"
 
 # Tcl script use only
-set             version              2013
+set             version              2013_sp1
 set             xeversion            2013.1.40.463413
 set             intel_prefix         /opt/intel
 set             intelxe_prefix       $intel_prefix/$version
-set             icc_prefix           $intelxe_prefix/composer_xe_2013_sp1.3.174
+set             icc_prefix           $intelxe_prefix/composer_xe_$version.3.174
 
 if {![file exists $icc_prefix]} {
     puts stderr "\t[module-info name] Load Error: $icc_prefix does not exist"

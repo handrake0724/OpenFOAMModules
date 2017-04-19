@@ -20,7 +20,7 @@ set             version              2016
 set             xeversion            2016.1.40.463413
 set             intel_prefix         /opt/intel
 set             intelxe_prefix       $intel_prefix/$version
-set             icc_prefix           $intelxe_prefix/compilers_and_libraries_2016.3.210/linux
+set             icc_prefix           $intelxe_prefix/compilers_and_libraries_$version.3.210/linux
 
 if {![file exists $icc_prefix]} {
     puts stderr "\t[module-info name] Load Error: $icc_prefix does not exist"

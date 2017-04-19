@@ -2,11 +2,11 @@
 
 conflict("intel", "gcc")
 
-local version="2013"
+local version="2013_sp1"
 local xeversion=version..".".."1.40.463413"
 local intel_prefix="/opt/intel"
 local intelxe_prefix=pathJoin(intel_prefix, version)
-local icc_prefix=pathJoin(intelxe_prefix, "composer_xe_2013_sp1.3.174")
+local icc_prefix=pathJoin(intelxe_prefix, "composer_xe_"..version..".".."3.174")
 
 whatis("Name: Intel 64 Compiler XE")
 whatis("Version: 16.0.7")
