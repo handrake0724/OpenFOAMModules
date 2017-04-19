@@ -3,4 +3,8 @@
 ## openfoam modulefile
 ##
 
-module load gcc openmpi OpenFOAM/4.x-dbg
+if { [ module-info mode load ] } {
+  module load gcc openmpi OpenFOAM/4.x-dbg
+} else {
+  module load OpenFOAM/4.x-dbg openmpi gcc
+}

@@ -28,7 +28,7 @@ local wm_ldflags="-O3"
 local wm_compiler
 if (wm_cc == "gcc") then
   wm_compiler="Gcc"
-elseif (wm_cxx == "icc") then
+elseif (wm_cc == "icc") then
   wm_compiler="Icc"
 elseif (os.getenv("WM_CC") == "clang") then
   wm_compiler="Clang"

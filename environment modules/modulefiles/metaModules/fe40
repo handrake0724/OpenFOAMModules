@@ -3,4 +3,8 @@
 ## openfoam modulefile
 ##
 
-module load gcc openmpi Foam-extend/4.0
+if { [ module-info mode load ] } {
+  module load gcc openmpi FOAM-extend/4.0
+} else {
+  module load FOAM-extend/4.0 openmpi gcc
+}

@@ -2,5 +2,11 @@
 ##
 ## openfoam modulefile
 ##
+#
+# for Tcl script use only
 
-module load gcc openmpi OpenFOAM/4.x
+if { [ module-info mode load ] } {
+  module load gcc openmpi OpenFOAM/4.x
+} else {
+  module load OpenFOAM/4.x openmpi gcc
+}
