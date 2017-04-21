@@ -4,5 +4,5 @@
 # 'module load mod'
 module use --append /usr/share/Modules/modulefiles/Compilers
 module use --append /usr/share/Modules/modulefiles/MPIs
-module use --append /usr/share/Modules/modulefiles/FOAMs
+module use --append /usr/share/Modules/modulefiles/FOAM
 module use --append /usr/share/Modules/modulefiles/metaModules
