@@ -251,3 +251,5 @@ prepend_path("LD_LIBRARY_PATH", pathJoin(wm_third_party_dir, "packages/libccmio-
 prepend_path("LD_LIBRARY_PATH", pathJoin(wm_third_party_dir, "packages/metis-5.1.0/platforms", wm_options, "lib"))
 prepend_path("LD_LIBRARY_PATH", pathJoin(wm_third_party_dir, "packages/ParMGridGen-1.0/platforms", wm_options, "lib"))
 prepend_path("LD_LIBRARY_PATH", pathJoin(wm_project_dir, "lib", wm_options))
+prepend-path("LD_LIBRARY_PATH", foam_site_libbin)
+prepend-path("LD_LIBRARY_PATH", foam_user_libbin)
