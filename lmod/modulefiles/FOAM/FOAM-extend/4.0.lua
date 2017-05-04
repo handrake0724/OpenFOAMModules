@@ -3,7 +3,9 @@
 prereq("openmpi")
 conflict("OpenFOAM", "FOAM-extend")
 
-whatis("FOAM-extend 4.0")
+whatis("Name: FOAM-extend project")
+whatis("Version: 4.0")
+whatis("Description: OpenFOAM variant based on OpenFOAM 1.6")
 
 local version="4.0"
 local foamRoot=os.getenv("HOME")
@@ -137,6 +139,7 @@ setenv("WM_PROJECT_DIR", wm_project_dir)
 setenv("WM_PROJECT_USER_DIR", wm_project_user_dir)
 setenv("WM_THIRD_PARTY_DIR", wm_third_party_dir)
 setenv("WM_DIR", wm_dir)
+
 -- Naval Hydro Pack specific
 setenv("NHP_LIB_SRC", nhp_lib_src)
 
@@ -251,5 +254,5 @@ prepend_path("LD_LIBRARY_PATH", pathJoin(wm_third_party_dir, "packages/libccmio-
 prepend_path("LD_LIBRARY_PATH", pathJoin(wm_third_party_dir, "packages/metis-5.1.0/platforms", wm_options, "lib"))
 prepend_path("LD_LIBRARY_PATH", pathJoin(wm_third_party_dir, "packages/ParMGridGen-1.0/platforms", wm_options, "lib"))
 prepend_path("LD_LIBRARY_PATH", pathJoin(wm_project_dir, "lib", wm_options))
-prepend-path("LD_LIBRARY_PATH", foam_site_libbin)
-prepend-path("LD_LIBRARY_PATH", foam_user_libbin)
+prepend_path("LD_LIBRARY_PATH", foam_site_libbin)
+prepend_path("LD_LIBRARY_PATH", foam_user_libbin)

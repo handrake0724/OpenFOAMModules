@@ -1,6 +1,6 @@
 #%Module1.0##########################################################
 ##
-## version file for openmpi
+## version file for foam-extend
 ##
 set ModulesVersion "4.0"
 

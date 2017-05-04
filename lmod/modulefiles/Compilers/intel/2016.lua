@@ -6,7 +6,7 @@ local version="2016"
 local xeversion=version..".".."1.40.463413"
 local intel_prefix="/opt/intel"
 local intelxe_prefix=pathJoin(intel_prefix, version)
-local icc_prefix=pathJoin(intelxe_prefix, "compilers_and_libraries_"..version..".".."3.210/linux")
+local icc_prefix=pathJoin(intelxe_prefix, "compilers_and_libraries_2016.3.210/linux")
 
 whatis("Name: Intel 64 Compiler XE")
 whatis("Version: 16.0.7")
