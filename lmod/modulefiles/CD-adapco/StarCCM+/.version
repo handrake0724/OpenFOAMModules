@@ -1,0 +1,6 @@
+#%Module1.0##########################################################
+##
+## version file for starccm+
+##
+set ModulesVersion "11.06.010"
+
