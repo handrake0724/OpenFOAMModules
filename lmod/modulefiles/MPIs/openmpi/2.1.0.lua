@@ -24,9 +24,9 @@ setenv("MPI_VER", myModuleVersion())
 
 setenv("MPI_HOME", prefix)
 setenv("MPICH_HOME", prefix)
+setenv("MPI_ARCH_PATH", prefix)
 setenv("MPI_BUFFER_SIZE", "2000000")
 
 prepend_path("PATH", pathJoin(prefix, "bin"))
 prepend_path("LD_LIBRARY_PATH", pathJoin(prefix, "lib"))
 append_path("MANPATH", pathJoin(prefix, "share/man"))
-

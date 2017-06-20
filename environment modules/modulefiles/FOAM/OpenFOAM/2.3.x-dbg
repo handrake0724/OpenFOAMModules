@@ -79,9 +79,9 @@ setenv PINC                                "[exec mpicc -show -cc= -nativelinkin
 setenv PLIBS                               "[exec mpicc -show -cc= | sed "s%$env(PINC)%%"]"
 
 prepend-path PATH                          "$env(WM_THIRD_PARTY_DIR)/platforms/$env(WM_ARCH)$env(WM_COMPILER)/gperftools-svn/bin"
-prepend-path PATH                          "$env(FOAM_USER_APPBIN)"
-prepend-path PATH                          "$env(FOAM_SITE_APPBIN)"
 prepend-path PATH                          "$env(FOAM_APPBIN)"
+prepend-path PATH                          "$env(FOAM_SITE_APPBIN)"
+prepend-path PATH                          "$env(FOAM_USER_APPBIN)"
 prepend-path PATH                          "$env(WM_PROJECT_DIR)/bin"
 prepend-path PATH                          "$env(WM_DIR)"
 

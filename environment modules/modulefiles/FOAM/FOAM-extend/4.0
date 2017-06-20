@@ -136,6 +136,7 @@ prepend-path     LD_LIBRARY_PATH                      "$env(WM_THIRD_PARTY_DIR)/
 prepend-path     LD_LIBRARY_PATH                      "$env(WM_THIRD_PARTY_DIR)/packages/metis-5.1.0/platforms/$env(WM_OPTIONS)/lib"
 prepend-path     LD_LIBRARY_PATH                      "$env(WM_THIRD_PARTY_DIR)/packages/ParMGridGen-1.0/platforms/$env(WM_OPTIONS)/lib"
 prepend-path     LD_LIBRARY_PATH                      "$env(WM_PROJECT_DIR)/lib/$env(WM_OPTIONS)"
+prepend-path     LD_LIBRARY_PATH                      "$env(FOAM_LIBBIN)"
 prepend-path     LD_LIBRARY_PATH                      "$env(FOAM_SITE_LIBBIN)"
 prepend-path     LD_LIBRARY_PATH                      "$env(FOAM_USER_LIBBIN)"
 

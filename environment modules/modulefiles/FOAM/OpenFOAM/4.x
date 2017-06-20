@@ -91,9 +91,9 @@ setenv           PLIBS                     "[exec mpicc -showme:link]"
 setenv           LIB_SRC                   "$env(WM_PROJECT_DIR)/src"
 
 prepend-path     PATH                      "$env(WM_THIRD_PARTY_DIR)/platforms/$env(WM_ARCH)$env(WM_COMPILER)/gperftools-svn/bin"
-prepend-path     PATH                      "$env(FOAM_USER_APPBIN)"
-prepend-path     PATH                      "$env(FOAM_SITE_APPBIN)"
 prepend-path     PATH                      "$env(FOAM_APPBIN)"
+prepend-path     PATH                      "$env(FOAM_SITE_APPBIN)"
+prepend-path     PATH                      "$env(FOAM_USER_APPBIN)"
 prepend-path     PATH                      "$env(WM_PROJECT_DIR)/bin"
 prepend-path     PATH                      "$env(WM_DIR)"
 

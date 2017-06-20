@@ -164,9 +164,9 @@ setenv("PLIBS", plibs)
 
 -- Keep the order
 prepend_path("PATH", pathJoin(wm_third_party_dir, "platforms", wm_arch..wm_compiler, "gperftools-svn/bin"))
-prepend_path("PATH", foam_user_appbin)
-prepend_path("PATH", foam_site_appbin)
 prepend_path("PATH", foam_appbin)
+prepend_path("PATH", foam_site_appbin)
+prepend_path("PATH", foam_user_appbin)
 prepend_path("PATH", pathJoin(wm_project_dir, "bin"))
 prepend_path("PATH", wm_dir)
 
